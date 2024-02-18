@@ -1,0 +1,29 @@
+[
+  {
+    "SettingsGlobal": [
+      {
+        "HDHomeRunHostnameOrIp": "HDHomeRun.local",
+        "NumberOfEpisodesToKeep": 20,
+        "DeleteOlderThanDays": 3650,
+        "ReRecord": 0,
+        "SortBy": "StartTime"
+      }
+    ],
+    "SettingsSeries": [
+      {
+        "SeriesTitle": "Saturday Night Live",
+        "NumberOfEpisodesToKeep": 8,
+        "DeleteOlderThanDays": 90,
+        "ReRecord": 0,
+        "SortBy": "OriginalAirDate"
+      },
+      {
+        "SeriesTitle": "Jeopardy!",
+        "NumberOfEpisodesToKeep": 7,
+        "DeleteOlderThanDays": 90,
+        "ReRecord": 0,
+        "SortBy": "OriginalAirDate"
+      }
+    ]
+  }
+]
