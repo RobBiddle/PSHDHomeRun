@@ -7,6 +7,11 @@ A JSON file [PSHDHomeRunSettings.json](/PSHDHomeRunSettings.json) is used to man
 This enables you to easily delete recordings from the HDHomeRun device based on the settings in the JSON file.
 You can use different settings for different TV series, movies, or sports events based on the Title.
 
+# Installation
+```powershell
+Install-Module -Name PSHDHomeRun
+```
+
 ## PSHDHomeRun Cmdlets
 
 ### [Get-HDHomeRunRecording](/help/Get-HDHomeRunRecording.md)
