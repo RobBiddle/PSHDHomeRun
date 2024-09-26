@@ -32,14 +32,14 @@ Accepts pipeline input including extra properties from Get-HDHomeRunRecording.
 
 ```[PowerShell]
 # Save the recording to the current directory
-Save-HDHomeRunRecording.ps1 -Filename "The_Simpsons_2024-01-01_12-00-00.ts" -PlayURL "<http://hdhr-11111111.local/recorded/12345678abcdef12>"
+Save-HDHomeRunRecording -Filename "The_Simpsons_2024-01-01_12-00-00.ts" -PlayURL "<http://hdhr-11111111.local/recorded/12345678abcdef12>"
 ```
 
 ### EXAMPLE 2
 
 ```[PowerShell]
 # Save the recording to a specific directory
-Save-HDHomeRunRecording.ps1 -Filename "The_Simpsons_2024-01-01_12-00-00.ts" -PlayURL "<http://hdhr-11111111.local/recorded/12345678abcdef12>" -SaveToDirectory "C:\Recordings"
+Save-HDHomeRunRecording -Filename "The_Simpsons_2024-01-01_12-00-00.ts" -PlayURL "<http://hdhr-11111111.local/recorded/12345678abcdef12>" -SaveToDirectory "C:\Recordings"
 ```
 
 ### EXAMPLE 3

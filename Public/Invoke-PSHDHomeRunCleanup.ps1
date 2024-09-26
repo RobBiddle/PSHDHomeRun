@@ -8,13 +8,13 @@
     episode will not be re-recorded. The default value for ReRecord is 0.
     .EXAMPLE
     Invoke the HDHomeRun DVR cleanup process with parameters loaded during Module import
-    Invoke-PSHDHomeRunCleanup.ps1
+    Invoke-PSHDHomeRunCleanup
     .EXAMPLE
     Invoke the HDHomeRun DVR cleanup process with parameters from the PSHDHomeRunSettings.json file
-    Invoke-PSHDHomeRunCleanup.ps1 -SettingsFilePath ".\PSHDHomeRunSettings.json"
+    Invoke-PSHDHomeRunCleanup -SettingsFilePath ".\PSHDHomeRunSettings.json"
     .EXAMPLE
     Invoke the HDHomeRun DVR cleanup process with explicit parameters
-    Invoke-PSHDHomeRunCleanup.ps1 -HDHomeRunDevice "HDHomeRun.local" `
+    Invoke-PSHDHomeRunCleanup -HDHomeRunDevice "HDHomeRun.local" `
         -Title "Jeopardy!" `
         -NumberOfEpisodesToKeep 4 `
         -DeleteOlderThanDays 30 `

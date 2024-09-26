@@ -115,28 +115,28 @@
         <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code># Returns all recordings from the HDHomeRun DVR using $Global:PSHDHomeRunSettings</dev:code>
         <dev:remarks>
-          <maml:para>Get-HDHomeRunRecording.ps1</maml:para>
+          <maml:para>Get-HDHomeRunRecording</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
         <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
         <dev:code># Returns all recordings from the HDHomeRun DVR, obtains HDHomeRunHostnameOrIp from PSHDHomeRunSettings.json</dev:code>
         <dev:remarks>
-          <maml:para>Get-HDHomeRunRecording.ps1 -PSHDHomeRunSettingsFile .\PSHDHomeRunSettings.json</maml:para>
+          <maml:para>Get-HDHomeRunRecording -PSHDHomeRunSettingsFile .\PSHDHomeRunSettings.json</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
         <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
         <dev:code># Returns all recordings from the HDHomeRun DVR, specifies HDHomeRunHostnameOrIp explicitly by hostname</dev:code>
         <dev:remarks>
-          <maml:para>Get-HDHomeRunRecording.ps1 -HDHomeRunHostnameOrIp HDHomeRun.local</maml:para>
+          <maml:para>Get-HDHomeRunRecording -HDHomeRunHostnameOrIp HDHomeRun.local</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
         <maml:title>-------------------------- EXAMPLE 4 --------------------------</maml:title>
         <dev:code># Returns all recordings from the HDHomeRun DVR, specifies HDHomeRunHostnameOrIp explicitly by IP address</dev:code>
         <dev:remarks>
-          <maml:para>Get-HDHomeRunRecording.ps1 -HDHomeRunHostnameOrIp 192.168.1.2</maml:para>
+          <maml:para>Get-HDHomeRunRecording -HDHomeRunHostnameOrIp 192.168.1.2</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
@@ -434,21 +434,21 @@
         <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Invoke the HDHomeRun DVR cleanup process with parameters loaded during Module import</dev:code>
         <dev:remarks>
-          <maml:para>Invoke-PSHDHomeRunCleanup.ps1</maml:para>
+          <maml:para>Invoke-PSHDHomeRunCleanup</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
         <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
         <dev:code>Invoke the HDHomeRun DVR cleanup process with parameters from the PSHDHomeRunSettings.json file</dev:code>
         <dev:remarks>
-          <maml:para>Invoke-PSHDHomeRunCleanup.ps1 -SettingsFilePath ".\PSHDHomeRunSettings.json"</maml:para>
+          <maml:para>Invoke-PSHDHomeRunCleanup -SettingsFilePath ".\PSHDHomeRunSettings.json"</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
         <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
         <dev:code>Invoke the HDHomeRun DVR cleanup process with explicit parameters</dev:code>
         <dev:remarks>
-          <maml:para>Invoke-PSHDHomeRunCleanup.ps1 -HDHomeRunDevice "HDHomeRun.local" `     -Title "Jeopardy!" `     -NumberOfEpisodesToKeep 4 `     -DeleteOlderThanDays 30 `     -SortBy "OriginalAirdate"</maml:para>
+          <maml:para>Invoke-PSHDHomeRunCleanup -HDHomeRunDevice "HDHomeRun.local" `     -Title "Jeopardy!" `     -NumberOfEpisodesToKeep 4 `     -DeleteOlderThanDays 30 `     -SortBy "OriginalAirdate"</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
@@ -563,7 +563,7 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
-        <dev:code>Remove-HDHomeRunRecording.ps1 -CmdURL http://hdhr-11111111.local/recorded/cmd?id=12345678abcdef12</dev:code>
+        <dev:code>Remove-HDHomeRunRecording -CmdURL http://hdhr-11111111.local/recorded/cmd?id=12345678abcdef12</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
         </dev:remarks>
@@ -729,14 +729,14 @@
         <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code># Save the recording to the current directory</dev:code>
         <dev:remarks>
-          <maml:para>Save-HDHomeRunRecording.ps1 -Filename "The_Simpsons_2024-01-01_12-00-00.ts" -PlayURL "http://hdhr-11111111.local/recorded/12345678abcdef12"</maml:para>
+          <maml:para>Save-HDHomeRunRecording -Filename "The_Simpsons_2024-01-01_12-00-00.ts" -PlayURL "http://hdhr-11111111.local/recorded/12345678abcdef12"</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
         <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
         <dev:code># Save the recording to a specific directory</dev:code>
         <dev:remarks>
-          <maml:para>Save-HDHomeRunRecording.ps1 -Filename "The_Simpsons_2024-01-01_12-00-00.ts" -PlayURL "http://hdhr-11111111.local/recorded/12345678abcdef12" -SaveToDirectory "C:\Recordings"</maml:para>
+          <maml:para>Save-HDHomeRunRecording -Filename "The_Simpsons_2024-01-01_12-00-00.ts" -PlayURL "http://hdhr-11111111.local/recorded/12345678abcdef12" -SaveToDirectory "C:\Recordings"</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>

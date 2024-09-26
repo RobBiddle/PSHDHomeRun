@@ -5,16 +5,16 @@
     Get the list of recordings from the HDHomeRun DVR
     .EXAMPLE
     # Returns all recordings from the HDHomeRun DVR using $Global:PSHDHomeRunSettings
-    Get-HDHomeRunRecording.ps1
+    Get-HDHomeRunRecording
     .EXAMPLE
     # Returns all recordings from the HDHomeRun DVR, obtains HDHomeRunHostnameOrIp from PSHDHomeRunSettings.json
-    Get-HDHomeRunRecording.ps1 -PSHDHomeRunSettingsFile .\PSHDHomeRunSettings.json
+    Get-HDHomeRunRecording -PSHDHomeRunSettingsFile .\PSHDHomeRunSettings.json
     .EXAMPLE
     # Returns all recordings from the HDHomeRun DVR, specifies HDHomeRunHostnameOrIp explicitly by hostname
-    Get-HDHomeRunRecording.ps1 -HDHomeRunHostnameOrIp HDHomeRun.local
+    Get-HDHomeRunRecording -HDHomeRunHostnameOrIp HDHomeRun.local
     .EXAMPLE
     # Returns all recordings from the HDHomeRun DVR, specifies HDHomeRunHostnameOrIp explicitly by IP address
-    Get-HDHomeRunRecording.ps1 -HDHomeRunHostnameOrIp 192.168.1.2
+    Get-HDHomeRunRecording -HDHomeRunHostnameOrIp 192.168.1.2
     .LINK
     https://github.com/RobBiddle/PSHDHomeRun
     .NOTES

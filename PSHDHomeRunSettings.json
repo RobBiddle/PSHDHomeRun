@@ -12,14 +12,14 @@
     "SettingsSeries": [
       {
         "SeriesTitle": "Saturday Night Live",
-        "NumberOfEpisodesToKeep": 8,
+        "NumberOfEpisodesToKeep": 12,
         "DeleteOlderThanDays": 90,
         "ReRecord": 0,
         "SortBy": "OriginalAirDate"
       },
       {
         "SeriesTitle": "Jeopardy!",
-        "NumberOfEpisodesToKeep": 7,
+        "NumberOfEpisodesToKeep": 30,
         "DeleteOlderThanDays": 90,
         "ReRecord": 0,
         "SortBy": "OriginalAirDate"

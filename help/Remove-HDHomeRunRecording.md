@@ -30,7 +30,7 @@ Accepts pipeline input including extra properties from Get-HDHomeRunRecording.
 ### EXAMPLE 1
 
 ```[PowerShell]
-Remove-HDHomeRunRecording.ps1 -CmdURL http://hdhr-11111111.local/recorded/cmd?id=12345678abcdef12
+Remove-HDHomeRunRecording -CmdURL http://hdhr-11111111.local/recorded/cmd?id=12345678abcdef12
 ```
 
 ### EXAMPLE 2

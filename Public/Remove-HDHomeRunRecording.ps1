@@ -9,7 +9,7 @@
     .LINK
     https://github.com/RobBiddle/PSHDHomeRun
     .EXAMPLE
-    Remove-HDHomeRunRecording.ps1 -CmdURL http://hdhr-11111111.local/recorded/cmd?id=12345678abcdef12
+    Remove-HDHomeRunRecording -CmdURL http://hdhr-11111111.local/recorded/cmd?id=12345678abcdef12
     .EXAMPLE
     # Remove ALL recordings using pipeline input
     Get-HDHomeRunRecording | Remove-HDHomeRunRecording
