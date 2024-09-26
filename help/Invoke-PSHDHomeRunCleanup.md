@@ -15,7 +15,7 @@ Be careful!
 
 ## SYNTAX
 
-Invoke-PSHDHomeRunCleanup [[-HDHomeRunDevice] <String>] [[-SettingsFilePath] <String>] [[-ReRecord] <Int32>]
+Invoke-PSHDHomeRunCleanup [[-HDHomeRunHostnameOrIp] <String>] [[-SettingsFilePath] <String>] [[-ReRecord] <Int32>]
  [[-Title] <String>] [[-NumberOfEpisodesToKeep] <Int32>] [[-DeleteOlderThanDays] <Int32>] [[-SortBy] <String>]
  [<CommonParameters>]
 
@@ -49,7 +49,7 @@ Invoke-PSHDHomeRunCleanup.ps1 -SettingsFilePath ".\PSHDHomeRunSettings.json"
 
 ```[PowerShell]
 # Invoke the HDHomeRun DVR cleanup process with explicit parameters
-Invoke-PSHDHomeRunCleanup.ps1 -HDHomeRunDevice "HDHomeRun.local" \`
+Invoke-PSHDHomeRunCleanup.ps1 -HDHomeRunHostnameOrIp "HDHomeRun.local" \`
     -Title "Jeopardy!" \`
     -NumberOfEpisodesToKeep 4 \`
     -DeleteOlderThanDays 30 \`
@@ -58,7 +58,7 @@ Invoke-PSHDHomeRunCleanup.ps1 -HDHomeRunDevice "HDHomeRun.local" \`
 
 ## PARAMETERS
 
-### -HDHomeRunDevice
+### -HDHomeRunHostnameOrIp
 
 The hostname or IP address of the HDHomeRun device
 

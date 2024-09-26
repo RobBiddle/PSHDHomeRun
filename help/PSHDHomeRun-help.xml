@@ -248,7 +248,7 @@
       <command:syntaxItem>
         <maml:name>Invoke-PSHDHomeRunCleanup</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none">
-          <maml:name>HDHomeRunDevice</maml:name>
+          <maml:name>HDHomeRunHostnameOrIp</maml:name>
           <maml:description>
             <maml:para>The hostname or IP address of the HDHomeRun device</maml:para>
           </maml:description>
@@ -335,7 +335,7 @@
     </command:syntax>
     <command:parameters>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none">
-        <maml:name>HDHomeRunDevice</maml:name>
+        <maml:name>HDHomeRunHostnameOrIp</maml:name>
         <maml:description>
           <maml:para>The hostname or IP address of the HDHomeRun device</maml:para>
         </maml:description>
@@ -448,7 +448,7 @@
         <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
         <dev:code>Invoke the HDHomeRun DVR cleanup process with explicit parameters</dev:code>
         <dev:remarks>
-          <maml:para>Invoke-PSHDHomeRunCleanup -HDHomeRunDevice "HDHomeRun.local" `     -Title "Jeopardy!" `     -NumberOfEpisodesToKeep 4 `     -DeleteOlderThanDays 30 `     -SortBy "OriginalAirdate"</maml:para>
+          <maml:para>Invoke-PSHDHomeRunCleanup -HDHomeRunHostnameOrIp "HDHomeRun.local" `     -Title "Jeopardy!" `     -NumberOfEpisodesToKeep 4 `     -DeleteOlderThanDays 30 `     -SortBy "OriginalAirdate"</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>

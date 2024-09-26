@@ -14,7 +14,7 @@
     Invoke-PSHDHomeRunCleanup -SettingsFilePath ".\PSHDHomeRunSettings.json"
     .EXAMPLE
     Invoke the HDHomeRun DVR cleanup process with explicit parameters
-    Invoke-PSHDHomeRunCleanup -HDHomeRunDevice "HDHomeRun.local" `
+    Invoke-PSHDHomeRunCleanup -HDHomeRunHostnameOrIp "HDHomeRun.local" `
         -Title "Jeopardy!" `
         -NumberOfEpisodesToKeep 4 `
         -DeleteOlderThanDays 30 `
@@ -37,7 +37,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-    .PARAMETER HDHomeRunDevice
+    .PARAMETER HDHomeRunHostnameOrIp
     The hostname or IP address of the HDHomeRun device
     .PARAMETER SettingsFilePath
     The path to the PSHDHomeRunSettings.json file
@@ -56,7 +56,7 @@ function Invoke-PSHDHomeRunCleanup {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $false, ValueFromPipelineByPropertyName = $true)]
-        [string]$HDHomeRunDevice,
+        [string]$HDHomeRunHostnameOrIp,
         [Parameter(Mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [string]$SettingsFilePath,
         [Parameter(Mandatory = $false, ValueFromPipelineByPropertyName = $true)]
@@ -85,17 +85,24 @@ function Invoke-PSHDHomeRunCleanup {
         $PSHDHomeRunSettings = $Global:PSHDHomeRunSettings
     }
 
-    if ($PSHDHomeRunSettings.HDHomeRunHostnameOrIp) {
-        $HDHomeRunDevice = $PSHDHomeRunSettings.HDHomeRunHostnameOrIp
+    if (-NOT $HDHomeRunHostnameOrIp -and -NOT $PSHDHomeRunSettings.HDHomeRunHostnameOrIp) {
+        Write-Error "HDHomeRunHostnameOrIp is not specified. Please specify the IP address or hostname of the HDHomeRun device."
+        return
     }
-
-    if (-not $HDHomeRunDevice) {
-        $HDHomeRunDevice = "HDHomeRun.local"
+    
+    if ((-NOT $HDHomeRunHostnameOrIp) -and $PSHDHomeRunSettings.HDHomeRunHostnameOrIp) {
+        $HDHomeRunHostnameOrIp = $PSHDHomeRunSettings.HDHomeRunHostnameOrIp
     }
 
     $DeletedEpisodes = @()
     # Get the list of recordings
-    $Recordings = Get-HDHomeRunRecording -HDHomeRunHostnameOrIp $HDHomeRunDevice
+    if ($HDHomeRunHostnameOrIp) {
+        $Recordings = Get-HDHomeRunRecording -HDHomeRunHostnameOrIp $HDHomeRunHostnameOrIp
+    }
+    else {
+        $Recordings = Get-HDHomeRunRecording
+    }
+    
     # Group the recordings by Title
     $RecordingsByTitle = $Recordings | Group-Object -Property Title
     # Loop through each Title
