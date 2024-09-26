@@ -12,6 +12,8 @@ You can use different settings for different TV series, movies, or sports events
 Install-Module -Name PSHDHomeRun
 ```
 
+![](https://gist.githubusercontent.com/RobBiddle/47d86620051190b77f0b0df14503a732/raw/7c85562daa123afb86a5c9ff8cdccd6a0e53c00e/PSHDHomeRun_Demo.svg)
+
 ## PSHDHomeRun Cmdlets
 
 ### [Get-HDHomeRunRecording](/help/Get-HDHomeRunRecording.md)
