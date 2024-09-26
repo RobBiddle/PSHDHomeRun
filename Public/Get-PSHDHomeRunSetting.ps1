@@ -39,7 +39,17 @@ function Get-PSHDHomeRunSetting {
     )
     
     if (-not $Path) {
-        $Path = ".\PSHDHomeRunSettings.json"
+        if (Test-Path -Path ".\PSHDHomeRunSettings.json") {
+            $Path = ".\PSHDHomeRunSettings.json"
+        }
+        elseif (Test-Path -Path (Join-Path -Path (Split-Path -Parent $PSScriptRoot) -ChildPath "PSHDHomeRunSettings.json")) {
+            $Path = Join-Path -Path (Split-Path -Parent $PSScriptRoot) -ChildPath "PSHDHomeRunSettings.json"
+            Write-Warning -Message "Using EXAMPLE PSHDHomeRunSettings.json from Module directory: $Path"
+        }
+        else {
+            Write-Error -Message "File not found: PSHDHomeRunSettings.json"
+            return
+        }
     }
 
     # Test if the file exists
