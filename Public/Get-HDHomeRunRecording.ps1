@@ -65,12 +65,47 @@ function  Get-HDHomeRunRecording {
         $PSHDHomeRunSettings = $Global:PSHDHomeRunSettings
     }
 
-    if ($PSHDHomeRunSettings.HDHomeRunHostnameOrIp) {
+    if (-NOT $HDHomeRunHostnameOrIp -and -NOT $PSHDHomeRunSettings.HDHomeRunHostnameOrIp) {
+        Write-Error "HDHomeRunHostnameOrIp is not specified. Please specify the IP address or hostname of the HDHomeRun device."
+        return
+    }
+
+    if ($HDHomeRunHostnameOrIp) {
+        $HDHomeRunDevice = $HDHomeRunHostnameOrIp
+    } else {
         $HDHomeRunDevice = $PSHDHomeRunSettings.HDHomeRunHostnameOrIp
     }
 
     if (-not $HDHomeRunDevice) {
-        $HDHomeRunDevice = "HDHomeRun.local"
+        # If PowerShell is running on Windows
+        if ($PSVersionTable.Platform -eq "Win32NT") {
+            $HDHomeRunDevice = ([System.Net.Dns]::GetHostAddresses("HDHomeRun.local") | Where-Object AddressFamily -eq "InterNetwork")[0].IPAddressToString
+        }
+        # If PowerShell is running on Linux
+        elseif ($PSVersionTable.Platform -eq "Unix") {
+            try {
+                $HDHomeRunDevice = ([System.Net.Dns]::GetHostAddresses("HDHomeRun.local") | Where-Object AddressFamily -eq "InterNetwork")[0].IPAddressToString
+            } catch {
+                try {
+                    if (-NOT (Get-Module -Name "DnsClient-PS" -ListAvailable)) {
+                        Write-Warning "DNS lookup on linux system failed. DnsClient-PS module not found. Attempting to install it now."
+                        $installnow = Read-Host "Would you like to install DnsClient-PS now? (Y/N)"
+                        if ($installnow -eq "Y") {
+                            Install-Module -Name "DnsClient-PS" -Force
+                        }
+                    } else {
+                        try {
+                            $HDHomeRunDevice = (Resolve-DnsName -Name "HDHomeRun.local" -QueryType -ThrowDnsErrors).IPAddress
+                        } catch {
+                            Write-Error "Unable to resolve HDHomeRun.local to an IP address. Please specify the IP address or hostname of the HDHomeRun device."
+                        }
+                    }
+                }
+                catch {
+                    Write-Error $Error[0]
+                }
+            }
+        }
     }
 
     # Get the list of recordings from the HDHomeRun DVR
